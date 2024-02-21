@@ -212,3 +212,16 @@ config TINYDRM_ST7735R
 	  * Okaya RH128128T 1.44" 128x128 TFT
 
 	  If M is selected the module will be called st7735r.
+
+config TINYDRM_ST7789V_GPIO
+       tristate "DRM support for ST7789V display panels with parallel bus interface over GPIO"
+       depends on DRM
+       select DRM_KMS_HELPER
+       select DRM_KMS_CMA_HELPER
+       select DRM_MIPI_DBI
+       select BACKLIGHT_CLASS_DEVICE
+       help
+         DRM driver for the following Sitronix ST7789V panels:
+         * LilyGo T-Display 1.9" 170x320 TFT
+
+         If M is selected the module will be called st7789v_gpio.
