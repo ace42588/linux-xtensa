@@ -1424,7 +1424,7 @@ int mipi_dbi_gpio_init(struct mipi_dbi *dbi, struct gpio_desc *dc,
 		      struct gpio_desc *wr, struct gpio_descs *db,
 		      unsigned long wr_up_delay, unsigned long wr_down_delay)
 {
-	dbi->spi = 0; /* Type B uses GPIO lines rather than SPI */
+	dbi->spi = NULL; /* Type B uses GPIO lines rather than SPI */
 
 	dbi->read_commands = mipi_dbi_dcs_read_commands;
 	dbi->command = mipi_dbi_gpio_command;
