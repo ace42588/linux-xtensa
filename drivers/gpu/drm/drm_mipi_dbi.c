@@ -804,6 +804,15 @@ int mipi_dbi_poweron_conditional_reset(struct mipi_dbi_dev *dbidev)
 }
 EXPORT_SYMBOL(mipi_dbi_poweron_conditional_reset);
 
+static bool mipi_dbi_machine_little_endian(void)
+{
+#if defined(__LITTLE_ENDIAN)
+	return true;
+#else
+	return false;
+#endif
+}
+
 #if IS_ENABLED(CONFIG_SPI)
 
 /**
@@ -823,15 +832,6 @@ u32 mipi_dbi_spi_cmd_max_speed(struct spi_device *spi, size_t len)
 	return min_t(u32, 10000000, spi->max_speed_hz);
 }
 EXPORT_SYMBOL(mipi_dbi_spi_cmd_max_speed);
-
-static bool mipi_dbi_machine_little_endian(void)
-{
-#if defined(__LITTLE_ENDIAN)
-	return true;
-#else
-	return false;
-#endif
-}
 
 /*
  * MIPI DBI Type C Option 1
